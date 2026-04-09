@@ -1,20 +1,15 @@
 # Documentation 1
-
 A brief, one or two-sentence description of what this project does and the problem it solves.
 
 ## 📖 Table of Contents
-
 - [Global/Centralized Error Middleware](#-globalcentralized-error-middleware)
 - [Async Wrapper](#-async-wrapper)
 - [Standard Response Helpers](#-standard-response-helpers)
 
 ## 🌟 Global/Centralized Error Middleware
-
-middlewares/errorHandler.js
 Acts as a single point to handle application-wide errors. By implementing this, a backend can consistently return actionable information to clients
-Use in index.js
-
 ```bash
+// Use in index.js
 const { errorHandler } = require("./middlewares/errorHandler");
 
 // your routes here
@@ -25,13 +20,10 @@ app.use(errorHandler);
 ```
 
 ## 🌟 Async Wrapper
-
-utils/asyncHandler.js
 We create a helper that automatically catches errors and sends them to middleware. Instead of writing try/catch everywhere
 Connected with Global Error Middleware
-Just import and use
-
 ```bash
+// Just import and use
 const asyncHandler = require("../utils/asyncHandler");
 
 exports.getUsers = asyncHandler(async (req, res) => {
@@ -41,9 +33,7 @@ exports.getUsers = asyncHandler(async (req, res) => {
 ```
 
 ## 🌟 Standard Response Helpers
-
-utils/response.js
-
+Standardizes the structure of success, error, and validation responses across trhe application.
 ```bash
 // ✅ Success
 {
